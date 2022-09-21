@@ -34,5 +34,5 @@
     version: master
 - git:
     local-name: panda_moveit_config
-    uri: https://github.com/ros-planning/panda_moveit_config.git
+    uri: https://github.com/peleito/panda_moveit_config.git
     version: noetic-devel
