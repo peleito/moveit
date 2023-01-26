@@ -596,24 +596,33 @@ class MoveGroupCommander(object):
 
     def go(self, joints=None, wait=True):
         """Set the target of the group and then move the group to the specified target"""
+        # print("move_group 1")
         if type(joints) is bool:
             wait = joints
             joints = None
+            # print("move_group 2")
 
         elif type(joints) is JointState:
             self.set_joint_value_target(joints)
+            # print("move_group 3")
 
         elif type(joints) is Pose:
             self.set_pose_target(joints)
+            # print("move_group 4")
+
 
         elif joints is not None:
             try:
+                # print("move_group 5")
                 self.set_joint_value_target(self.get_remembered_joint_values()[joints])
             except (KeyError, TypeError):
+                # print("move_group 6")
                 self.set_joint_value_target(joints)
         if wait:
+            # print("move_group 7")
             return self._g.move()
         else:
+            # print("move_group 8")
             return self._g.async_move()
 
     def plan(self, joints=None):

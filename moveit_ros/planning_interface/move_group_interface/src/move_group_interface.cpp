@@ -883,6 +883,7 @@ public:
     }
     else
     {
+      ROS_INFO("error???");
       ROS_INFO_STREAM_NAMED(LOGNAME, move_action_client_->getState().toString()
                                          << ": " << move_action_client_->getState().getText());
       return move_action_client_->getResult()->error_code;
